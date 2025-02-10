@@ -14,6 +14,8 @@ public class Ball : MonoBehaviour
 
     [SerializeField] protected Vector3 startForce = Vector3.one;
 
+    [SerializeField] protected int damage = 1;
+
     // Methods
     private void OnEnable()
     {
@@ -39,9 +41,18 @@ public class Ball : MonoBehaviour
 
         nV3.x = Mathf.Clamp(hV3.x, -worldVelocity, worldVelocity);
         nV3.y = Mathf.Clamp(hV3.y, -worldVelocity, worldVelocity);
-        nV3.z = 0;
+        nV3.z = Mathf.Clamp(hV3.z, -worldVelocity, worldVelocity);
 
         rb.velocity = nV3;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        BreakBrick bb = collision.gameObject.GetComponent<BreakBrick>();
+        if(bb != null)
+        {
+            bb.Break(damage);
+        }
     }
 
 
