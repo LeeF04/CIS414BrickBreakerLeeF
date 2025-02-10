@@ -12,6 +12,15 @@ public class GameManager : MonoBehaviour
     private float playerScore = 0;
 
     // Methods
+    public void ResetScore()
+    {
+        playerScore = 0;
+    }
+
+    public void AddScore(float aScore)
+    {
+        playerScore += aScore;
+    }
 
 
     // Accessors

@@ -19,6 +19,7 @@ public class CanvasNav : MonoBehaviour
 
     public void LoadStartScreen()
     {
+        GameManager.Instance.ResetScore();
         LoadNextScene(0);
     }
     
