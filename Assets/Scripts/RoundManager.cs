@@ -8,7 +8,7 @@ using UnityEngine;
 public class RoundManager : MonoBehaviour
 {
     // Variables
-    [SerializeField] protected List<BreakBrick> bricks;
+    //[SerializeField] protected List<BreakBrick> bricks;
     [SerializeField] protected GameObject canvasScene;
 
     // Methods
@@ -19,7 +19,7 @@ public class RoundManager : MonoBehaviour
 
     private void Awake()
     {
-        GameObject[] gOs = GameObject.FindObjectsOfType<GameObject>();
+        RoundManager[] gOs = FindObjectsOfType<RoundManager>();
 
         if(gOs.Length > 1)
         {
@@ -30,7 +30,7 @@ public class RoundManager : MonoBehaviour
 
     protected void EndRound()
     {
-        if (FindObjectsOfType<BreakBrick>().Length <= 0)
+        if (FindObjectsOfType<BreakBrick>().Length < 1)
         {
             canvasScene.SetActive(true);
         }

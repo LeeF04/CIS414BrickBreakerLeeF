@@ -12,15 +12,15 @@ public class CanvasNav : MonoBehaviour
     
     
     // Methods
-    public void LoadNextScene(int aIndex)
+    public void LoadNextScene()
     {
-        SceneManager.LoadScene(aIndex);
+        GameManager.Instance.NextScene();
     }
 
     public void LoadStartScreen()
     {
-        GameManager.Instance.ResetScore();
-        LoadNextScene(0);
+        //GameManager.Instance.ResetScore();
+        GameManager.Instance.StartScene();
     }
     
     // Accessors
